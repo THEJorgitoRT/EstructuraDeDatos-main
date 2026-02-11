@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--
+  ============================================================
+  PORTAFOLIO ACADÉMICO – PRESENTACIÓN DE CÓDIGO FUENTE
+  Autor: Jorge Armando Rincones Torres
+  Programa: Ingeniería de Software
+  Universidad de Santander (UDES)
+
+  Estructura:
+  - Menú principal por materia
+  - Submenú interno por tipo de evaluación
+  - Código con resaltado
+  - Evidencias desde el proyecto (IDE)
+  ============================================================
+  -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio – Ingeniería de Software</title>
+
+    <!-- Prism.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #0b0f1a;
+            color: #eaeaea;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #00f0ff, #7a00ff);
+            padding: 35px;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+        
+        header p {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+        /* MENÚ PRINCIPAL */
+        
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #0a0d17;
+            padding: 15px;
+            border-bottom: 1px solid #222;
+        }
+        
+        .main-nav button,
+        .sub-nav button {
+            background: transparent;
+            border: 1px solid #00f0ff;
+            color: #00f0ff;
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .main-nav button:hover,
+        .sub-nav button:hover {
+            background: #00f0ff;
+            color: #000;
+        }
+        
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .materia {
+            display: none;
+        }
+        
+        .materia.active {
+            display: block;
+        }
+        
+        .sub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .subsection {
+            display: none;
+        }
+        
+        .subsection.active {
+            display: block;
+        }
+        
+        .card {
+            background: #11162a;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+        }
+        
+        .card h2 {
+            margin-top: 0;
+            color: #00f0ff;
+        }
+        
+        pre {
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        
+        .copy-btn {
+            margin-top: 15px;
+            background: #00f0ff;
+            color: #000;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .copy-btn:hover {
+            background: #7a00ff;
+            color: #fff;
+        }
+        
+        .evidencia img {
+            margin-top: 15px;
+            max-width: 100%;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0a0d17;
+            border-top: 1px solid #222;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        footer span {
+            color: #00f0ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Ingeniería de Software</h1>
+        <p>Jorge Armando Rincones Torres – Universidad de Santander</p>
+    </header>
+
+    <!-- MENÚ PRINCIPAL -->
+    <nav class="main-nav">
+        <button onclick="mostrarMateria('estructura')">Estructura de Datos</button>
+        <button onclick="mostrarMateria('programacion')">Programación II</button>
+    </nav>
+
+    <main>
+
+        <!-- ================== ESTRUCTURA DE DATOS ================== -->
+        <section id="estructura" class="materia active">
+
+            <div class="sub-nav">
+                <button onclick="mostrarSub('ed-act')">Actividades</button>
+                <button onclick="mostrarSub('ed-quiz')">Quiz</button>
+                <button onclick="mostrarSub('ed-parcial')">Parcial</button>
+            </div>
+
+            <!-- ACTIVIDADES -->
+            <div id="ed-act" class="subsection active">
+                <div class="card">
+                    <h2>Actividad 1 – Enunciado</h2>
+                    <p>Burbuja simple en c++.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Código Fuente</h2>
+                    <pre><code class="language-cpp" id="code-ed-1">
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+void burbujasimple(std::vector&lt;std::string&gt; &amp;arr){
+    int n = arr.size();
+
+    for (int i = 0; i &lt; n - 1; i++){
+        for (int j = 0; j &lt; n - i - 1; j++){
+            if (arr[j] &gt; arr[j+1]) {
+                string temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+
+    vector&lt;string&gt; nombres = {
+        "Raquel",
+        "Luisa",
+        "Miren",
+        "Oscar",
+        "Javier",
+        "Gorka",
+        "Calixto",
+        "Santos",
+        "Paco",
+        "Alberto",
+        "Toribio",
+        "Manuel",
+        "Teresa",
+        "Ramiro",
+        "Gregorio"
+    };
+
+    cout &lt;&lt; "Vector Original\n";
+    for (const string &amp;nombre : nombres) {
+        cout &lt;&lt; nombre &lt;&lt; " ";
+    }
+
+    burbujasimple(nombres);
+
+    cout &lt;&lt; "\n\nVector Ordenado\n";
+    for (const string &amp;nombre : nombres) {
+        cout &lt;&lt; nombre &lt;&lt; " ";
+    }
+
+    return 0;
+}
+</code></pre>
+
+
+                    </code>
+                    </pre>
+                    <button class="copy-btn" onclick="copiarCodigo('code-ed-1')">📋 Copiar código</button>
+                </div>
+
+                <div class="card evidencia">
+                    <h2>Evidencia</h2>
+                    <img src="./images/Screenshot 2026-02-06 114622.png" alt="Evidencia actividad">
+                </div>
+
+                <div class="card">
+                    <h2>Actividad 2 – Enunciado</h2>
+                    <p>Arreglar o organizar una lista con C++.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Código Fuente</h2>
+                    <pre><code class="language-cpp" id="code-ed-1">
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+// TU CÓDIGO TAL CUAL
+      </code></pre>
+                    <button class="copy-btn" onclick="copiarCodigo('code-ed-1')">📋 Copiar código</button>
+                </div>
+
+                <div class="card evidencia">
+                    <h2>Evidencia</h2>
+                    <img src="./images/actividad1.png" alt="Evidencia actividad">
+                </div>
+            </div>
+
+            <!-- QUIZ -->
+            <div id="ed-quiz" class="subsection">
+                <div class="card">
+                    <h2>Quiz</h2>
+                    <p>Evaluación corta de estructuras de datos.</p>
+                </div>
+            </div>
+
+            <!-- PARCIAL -->
+            <div id="ed-parcial" class="subsection">
+                <div class="card">
+                    <h2>Parcial</h2>
+                    <p>Evaluación parcial de la asignatura.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================== PROGRAMACIÓN II ================== -->
+        <section id="programacion" class="materia">
+
+            <div class="sub-nav">
+                <button onclick="mostrarSub('p2-act')">Actividades</button>
+                <button onclick="mostrarSub('p2-quiz')">Quiz</button>
+                <button onclick="mostrarSub('p2-parcial')">Parcial</button>
+            </div>
+
+            <div id="p2-act" class="subsection active">
+                <div class="card">
+                    <h2>Actividades – Programación II</h2>
+                    <p>Ejercicios de clases y métodos.</p>
+                </div>
+            </div>
+
+            <div id="p2-quiz" class="subsection">
+                <div class="card">
+                    <h2>Quiz – Programación II</h2>
+                </div>
+            </div>
+
+            <div id="p2-parcial" class="subsection">
+                <div class="card">
+                    <h2>Parcial – Programación II</h2>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Creado por <span>Jorge Armando Rincones Torres</span> – Ingeniería de Software – UDES
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+    <script>
+        function mostrarMateria(id) {
+            document.querySelectorAll('.materia').forEach(m => m.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+
+            const subs = document.querySelectorAll(`#${id} .subsection`);
+            subs.forEach(s => s.classList.remove('active'));
+            subs[0].classList.add('active');
+        }
+
+        function mostrarSub(id) {
+            document.querySelectorAll('.subsection').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function copiarCodigo(id) {
+            navigator.clipboard.writeText(document.getElementById(id).innerText);
+            alert("Código copiado correctamente");
+        }
+    </script>
+
+</body>
+
+</html>
