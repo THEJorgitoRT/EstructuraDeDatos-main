@@ -189,7 +189,7 @@
             <div id="ed-act" class="subsection active">
                 <div class="card">
                     <h2>Actividad 1 – Enunciado</h2>
-                    <p>Burbuja simple en c++.</p>
+                    <p>Burbuja simple en c++ String.</p>
                 </div>
 
                 <div class="card">
@@ -261,23 +261,235 @@ int main() {
 
                 <div class="card">
                     <h2>Actividad 2 – Enunciado</h2>
-                    <p>Arreglar o organizar una lista con C++.</p>
+                    <p>Burbuja Simple en Java String</p>
                 </div>
 
                 <div class="card">
                     <h2>Código Fuente</h2>
-                    <pre><code class="language-cpp" id="code-ed-1">
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
-// TU CÓDIGO TAL CUAL
+                    <pre><code class="language-cpp" id="code-ed-2">
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class BurbujaSimple
+{
+    
+    public static void OrdenamientoBurbuja(String [] arr){
+        int n = arr.length;
+        for (int i= 0; i < n - 1; i++){
+            for (int j=0;j < n - i - 1; j++){
+                if (arr[j].compareTo(arr[j+1]) > 0){
+                    // Intercambiar Arr [j y arr [i]]
+                    String temp = arr[j];
+                    arr[j] = arr[i + 1];
+                    arr[i+1] = temp;
+                } 
+            }
+        }
+    }
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        String[] nombres = {"carlos", "ana", "luis", "Maria",  "pedro"};
+        System.out.println("Lista Original: ");
+        for (String nombre : nombres){
+            System.out.print(nombre + " ");
+        }
+        OrdenamientoBurbuja(nombres);
+        System.out.println("\nLista Ordenada: ");
+        for (String nombre : nombres){
+            System.out.print(nombre + " ");
+        }
+    }
+}
       </code></pre>
-                    <button class="copy-btn" onclick="copiarCodigo('code-ed-1')">📋 Copiar código</button>
+                    <button class="copy-btn" onclick="copiarCodigo('code-ed-2')">📋 Copiar código</button>
                 </div>
 
                 <div class="card evidencia">
                     <h2>Evidencia</h2>
-                    <img src="./images/actividad1.png" alt="Evidencia actividad">
+                    <img src="./images/image copy 3.png" alt="Evidencia actividad">
                 </div>
+            </div>
+
+            <div class="card">
+                <h2>Actividad 3 – Enunciado</h2>
+                <p>Burbuja Simple en Java Int</p>
+            </div>
+
+            <div class="card">
+                <h2>Código Fuente</h2>
+                <pre><code class="language-cpp" id="code-ed-3">
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class BurbujaMejorado
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int vec[] = {47,17,23,67,21};
+		System.out.println("Vector Original: ");
+	    imprimirVector(vec);
+		System.out.println("");
+		vec = ordenacionBurMej(vec);
+		System.out.println("Vector Ordenado: ");
+		imprimirVector(vec);
+
+	}
+	public static int [] ordenacionBurMej(int vec[]){
+	    final int N = vec.length;
+	    for (int i = N - 1;i > 0 ; i-- ){
+	        for (int j = 0;j < i ; j++ ){
+	            if (vec[j]>vec[j+1]){
+	                int temp = vec[j];
+	                vec[j] = vec[j+1];
+	                vec[j+1] = temp;
+	            } 
+	        } System.out.print("Iteracion: "+ (N-i)+": ");
+	        imprimirVector(vec);
+	        System.out.println();
+	    } 
+	    return vec;
+	}
+	public static void imprimirVector(int vec[]){
+	    for (int i = 0;i < vec.length ;i++ ){
+	        System.out.print(vec[i] + " ");
+	    } 
+	}
+}
+      </code></pre>
+                <button class="copy-btn" onclick="copiarCodigo('code-ed-3')">📋 Copiar código</button>
+            </div>
+
+            <div class="card evidencia">
+                <h2>Evidencia</h2>
+                <img src="./images/image copy.png   " alt="Evidencia actividad">
+            </div>
+            </div>
+
+            <div class="card">
+                <h2>Actividad 4 – Enunciado</h2>
+                <p>Burbuja Simple en c++ Int</p>
+            </div>
+
+            <div class="card">
+                <h2>Código Fuente</h2>
+                <pre><code class="language-cpp" id="code-ed-4">
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+void burbujasimple(vector<int> &arr){
+    int n = arr.size();
+
+    for (int i = 0; i < n - 1; i++){
+        for (int j = 0; j < n - i - 1; j++){
+            if (arr[j] > arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+
+int main() {
+    vector<int> nombres = {23,54,12,43,55,67};	
+
+    cout << "vector Original" << std::endl;
+    for (int & nombre : nombres ) {
+        std::cout << nombre << " ";
+        
+    }
+    burbujasimple(nombres);
+    cout << "\nvector Arreglado" << std::endl;
+    for (int & nombre : nombres ) {
+        std::cout << nombre << " ";
+        
+    }
+    return 0;
+
+}
+      </code></pre>
+                <button class="copy-btn" onclick="copiarCodigo('code-ed-4')">📋 Copiar código</button>
+            </div>
+
+            <div class="card evidencia">
+                <h2>Evidencia</h2>
+                <img src="./images/image copy 2.png" alt="Evidencia actividad">
+            </div>
+            </div>
+
+            <!-- QUIZ -->
+            <div id="ed-quiz" class="subsection">
+                <div class="card">
+                    <h2>Quiz</h2>
+                    <p>Evaluación corta de estructuras de datos.</p>
+                </div>
+            </div>
+
+            <!-- PARCIAL -->
+            <div id="ed-parcial" class="subsection">
+                <div class="card">
+                    <h2>Parcial</h2>
+                    <p>Evaluación parcial de la asignatura.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Actividad 5 – Enunciado</h2>
+                <p>Burbuja Mejorado Java</p>
+            </div>
+
+            <div class="card">
+                <h2>Código Fuente</h2>
+                <pre><code class="language-cpp" id="code-ed-5">
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class BurbujaMejorado
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int vec[] = {47,17,23,67,21};
+		System.out.println("Vector Original: ");
+	    imprimirVector(vec);
+		System.out.println("");
+		vec = ordenacionBurMej(vec);
+		System.out.println("Vector Ordenado: ");
+		imprimirVector(vec);
+
+	}
+	public static int [] ordenacionBurMej(int vec[]){
+	    final int N = vec.length;
+	    for (int i = N - 1;i > 0 ; i-- ){
+	        for (int j = 0;j < i ; j++ ){
+	            if (vec[j]>vec[j+1]){
+	                int temp = vec[j];
+	                vec[j] = vec[j+1];
+	                vec[j+1] = temp;
+	            } 
+	        } System.out.print("Iteracion: "+ (N-i)+": ");
+	        imprimirVector(vec);
+	        System.out.println();
+	    } 
+	    return vec;
+	}
+	public static void imprimirVector(int vec[]){
+	    for (int i = 0;i < vec.length ;i++ ){
+	        System.out.print(vec[i] + " ");
+	    } 
+	}
+}
+      </code></pre>
+                <button class="copy-btn" onclick="copiarCodigo('code-ed-5')">📋 Copiar código</button>
+            </div>
+
+            <div class="card evidencia">
+                <h2>Evidencia</h2>
+                <img src="./images/image copy 4.png" alt="Evidencia actividad">
+            </div>
             </div>
 
             <!-- QUIZ -->
